@@ -4,6 +4,7 @@ public class Box {
     double length;
     double width;
     double height;
+    double side;
 //    double weight;
 
     Box(){
