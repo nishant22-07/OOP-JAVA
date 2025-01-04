@@ -2,38 +2,35 @@ package com.nishant.staticExamples;
 
 public class Main {
     public static void main(String[] args) {
-//        Human Nishant = new Human(20 ,"Nishant" , 10000 ,false);
-//        Human Anish = new Human(20 ,"Anish" , 10000 ,false);
-//        Human Aditya = new Human(20 ,"Aditya" , 100000 ,false);
-//        System.out.println(Human.population);
-//        System.out.println(Human.population);
-//        System.out.println(Human.population);
+        // Create Human objects
+        Human Nishant = new Human(20, "Nishant", 10000, false);
+        Human Anish = new Human(22, "Anish", 15000, true);
+        Human Aditya = new Human(25, "Aditya", 20000, false);
 
+        // Print the shared static variable population
+        System.out.println("Total population: " + Human.population); // Output: 3
+
+        // Demonstrate static vs non-static methods
         Main funn = new Main();
         funn.fun2();
-
- }
-    //this is not depend on objects
-    static void fun(){
-        //greetings();//without obj. you cant use this because it requires object or instance
-        //but the funtion we are using does not depends on instances
-
-
-        //you can not access non static stuff without referencing their instance in
-        // a static context
-
-        //here i referencing it
-        Main obj = new Main();
-        obj.greetings();
     }
-    void fun2(){
+
+    // Static method: Does not depend on objects
+    static void fun() {
+        // Print a message instead of calling a non-static method to avoid recursion
+        System.out.println("This is a static method.");
+    }
+
+    // Non-static method
+    void fun2() {
+        // Can directly call another non-static method
         greetings();
     }
 
-    //we know that something which is not static belongs to object
-    void greetings(){
-        fun();
-        System.out.println("hello,how are you");
+    // Non-static method
+    void greetings() {
+        // Call the static method without recursion
+        fun(); // Static method can be called directly without creating recursion
+        System.out.println("hello, how are you");
     }
 }
-
