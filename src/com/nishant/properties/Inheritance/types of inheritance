@@ -1,0 +1,195 @@
+Inheritance is a key concept in **Object-Oriented Programming (OOP)** that allows a class (child class)
+to inherit properties and behaviors (methods) from another class (parent class). There are several types
+of inheritance, depending on the relationships between the classes. Below are the main types:
+
+---
+
+### **1. Single Inheritance**
+- **Definition**: A child class inherits from a single parent class.
+- **Example**:
+  ```java
+  class Parent {
+      void show() {
+          System.out.println("This is the parent class.");
+      }
+  }
+
+  class Child extends Parent {
+      void display() {
+          System.out.println("This is the child class.");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Child obj = new Child();
+          obj.show();    // Parent class method
+          obj.display(); // Child class method
+      }
+  }
+  ```
+
+---
+
+### **2. Multilevel Inheritance**
+- **Definition**: A class inherits from another class, which itself is a child of another class.
+                  The chain continues.
+- **Example**:
+  ```java
+  class Grandparent {
+      void method1() {
+          System.out.println("This is the grandparent class.");
+      }
+  }
+
+  class Parent extends Grandparent {
+      void method2() {
+          System.out.println("This is the parent class.");
+      }
+  }
+
+  class Child extends Parent {
+      void method3() {
+          System.out.println("This is the child class.");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Child obj = new Child();
+          obj.method1(); // Grandparent method
+          obj.method2(); // Parent method
+          obj.method3(); // Child method
+      }
+  }
+  ```
+
+---
+
+### **3. Hierarchical Inheritance**
+- **Definition**: Multiple child classes inherit from a single parent class.
+- **Example**:
+  ```java
+  class Parent {
+      void method() {
+          System.out.println("This is the parent class.");
+      }
+  }
+
+  class Child1 extends Parent {
+      void method1() {
+          System.out.println("This is the first child class.");
+      }
+  }
+
+  class Child2 extends Parent {
+      void method2() {
+          System.out.println("This is the second child class.");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Child1 obj1 = new Child1();
+          obj1.method();
+          obj1.method1();
+
+          Child2 obj2 = new Child2();
+          obj2.method();
+          obj2.method2();
+      }
+  }
+  ```
+
+---
+
+### **4. Multiple Inheritance (Through Interfaces in Java)**
+- **Definition**: A class can inherit properties and methods from multiple classes using interfaces. (Java doesn’t support multiple inheritance with classes directly to avoid ambiguity caused by the **Diamond Problem**.)
+- **Example**:
+  ```java
+  interface Interface1 {
+      void method1();
+  }
+
+  interface Interface2 {
+      void method2();
+  }
+
+  class Child implements Interface1, Interface2 {
+      public void method1() {
+          System.out.println("Method from Interface1.");
+      }
+
+      public void method2() {
+          System.out.println("Method from Interface2.");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Child obj = new Child();
+          obj.method1();
+          obj.method2();
+      }
+  }
+  ```
+
+---
+
+### **5. Hybrid Inheritance**
+- **Definition**: A combination of two or more types of inheritance (e.g., single and multiple).
+                  In Java, this can only be achieved using interfaces due to the restriction on
+                  multiple inheritance with classes.
+- **Example (Using Interfaces)**:
+  ```java
+  interface Interface1 {
+      void method1();
+  }
+
+  interface Interface2 {
+      void method2();
+  }
+
+  class Parent {
+      void method3() {
+          System.out.println("This is the parent class.");
+      }
+  }
+
+  class Child extends Parent implements Interface1, Interface2 {
+      public void method1() {
+          System.out.println("Method from Interface1.");
+      }
+
+      public void method2() {
+          System.out.println("Method from Interface2.");
+      }
+  }
+
+  public class Main {
+      public static void main(String[] args) {
+          Child obj = new Child();
+          obj.method3(); // Parent method
+          obj.method1(); // Interface1 method
+          obj.method2(); // Interface2 method
+      }
+  }
+  ```
+
+---
+
+### **Key Notes on Inheritance**
+1. **Advantages**:
+   - Code reusability.
+   - Easy to maintain and extend functionality.
+   - Implements polymorphism.
+
+2. **Disadvantages**:
+   - Can increase complexity in large hierarchies.
+   - Tight coupling between parent and child classes can lead to less flexibility.
+
+3. **Diamond Problem**:
+   - Occurs when a child class inherits from two parent classes that have a common ancestor, leading to ambiguity in method resolution.
+   - Java avoids this issue by disallowing multiple inheritance with classes but allows it through interfaces.
+
+Let me know if you'd like further clarification or examples!
