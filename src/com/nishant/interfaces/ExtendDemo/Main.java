@@ -1,6 +1,6 @@
 package com.nishant.interfaces.ExtendDemo;
 
-public class Main implements B{
+public class Main implements A,B{
     @Override
     public void greet() {
         System.out.println("hi! how are you?");
