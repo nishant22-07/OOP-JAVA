@@ -5,8 +5,12 @@ import java.sql.SQLOutput;
 public class main {
     public static void main(String[] args) {
 //        //parent class
+
 //        System.out.println("Parent class");
-//        Box box = new Box();
+          Box box = new Box();
+          box.getLength();
+
+
 //        System.out.println(box.length + " " + box.width + " " + box.height  );
 //
 //        Box box1 = new Box(4);
