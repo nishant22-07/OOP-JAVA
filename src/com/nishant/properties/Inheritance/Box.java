@@ -1,11 +1,16 @@
 package com.nishant.properties.Inheritance;
 
 public class Box {
-    double length;
+    private double length;
     double width;
     double height;
     double side;
 //    double weight;
+
+
+    public double getLength() {
+        return length;
+    }
 
     Box(){
         super();
